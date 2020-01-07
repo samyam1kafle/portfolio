@@ -23,9 +23,8 @@ Route::any('/admin-login', 'BackEndControllers\loginController@login')->name('ad
 Route::get('/log-out', 'BackEndControllers\loginController@logout')->name('log-out');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+
     Route::get('/index', 'BackEndControllers\BackEndController@index')->name('admin-index');
-
-
 
     Route::resource('/contact-info', 'BackEndControllers\contactInfoController');
 
@@ -38,8 +37,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('/experience', 'BackEndControllers\experienceController');
 
     Route::resource('/profile', 'BackEndControllers\profileController');
-
-
 
 
 });

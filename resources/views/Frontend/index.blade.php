@@ -6,12 +6,12 @@
 
     <!--========== SLIDER ==========-->
     <div class="promo-block parallax-window" data-parallax="scroll"
-         data-image-src="{{asset('FrontEnd/img/1920x1080/01.jpg')}}">
+         data-image-src="{{asset('uploads/'.$admin->image)}}">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="promo-block-divider">
-                        <h1 class="promo-block-title">Alex <br/> Teseira</h1>
+                        <h1 class="promo-block-title">{{$admin->name}}</h1>
                         <p class="promo-block-text">Web Designer &amp; Front-end Developer</p>
                     </div>
                     <ul class="list-inline">
@@ -41,12 +41,7 @@
                 </div>
                 <div class="col-sm-8 col-sm-offset-1">
                     <div class="margin-b-60">
-                        <p>I'm Alex Teseira, orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.</p>
+                        <p>{!! $admin->introduction !!}</p>
                     </div>
 
                     <!-- Progress Box -->
