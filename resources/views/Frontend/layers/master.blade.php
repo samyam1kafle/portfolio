@@ -1,0 +1,7 @@
+@include('Frontend.layers.header')
+@include('Frontend.layers.nav')
+@include('Frontend.layers.footer')
+@yield('header')
+@yield('nav')
+@yield('section')
+@yield('footer')

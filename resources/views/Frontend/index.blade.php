@@ -1,0 +1,194 @@
+@extends('Frontend.layers.master')
+@section('section')
+    <!-- BODY -->
+    <body id="body" data-spy="scroll" data-target=".header">
+
+
+    <!--========== SLIDER ==========-->
+    <div class="promo-block parallax-window" data-parallax="scroll"
+         data-image-src="{{asset('FrontEnd/img/1920x1080/01.jpg')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="promo-block-divider">
+                        <h1 class="promo-block-title">Alex <br/> Teseira</h1>
+                        <p class="promo-block-text">Web Designer &amp; Front-end Developer</p>
+                    </div>
+                    <ul class="list-inline">
+                        <li><a href="#" class="social-icons"><i class="icon-social-facebook"></i></a></li>
+                        <li><a href="#" class="social-icons"><i class="icon-social-twitter"></i></a></li>
+                        <li><a href="#" class="social-icons"><i class="icon-social-dribbble"></i></a></li>
+                        <li><a href="#" class="social-icons"><i class="icon-social-behance"></i></a></li>
+                        <li><a href="#" class="social-icons"><i class="icon-social-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!--========== SLIDER ==========-->
+
+    <!--========== PAGE LAYOUT ==========-->
+    <!-- About -->
+    <div id="about">
+        <div class="container content-lg">
+            <div class="row">
+                <div class="col-sm-3 sm-margin-b-30">
+                    <div class="text-right sm-text-left">
+                        <h2 class="margin-b-0">Intro</h2>
+                        <p>What I am all about.</p>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-sm-offset-1">
+                    <div class="margin-b-60">
+                        <p>I'm Alex Teseira, orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                            mollit anim id est laborum.</p>
+                    </div>
+
+                    <!-- Progress Box -->
+                    @foreach($skills as $skill)
+                    <div class="progress-box">
+                        <h5>{{$skill->name}} <span class="color-heading pull-right"></span></h5>
+                        <div class="progress">
+                            <div class="progress-bar bg-color-base" role="progressbar" data-width="100"></div>
+                        </div>
+                    </div>
+                    @endforeach
+                    <!-- End Progress Box -->
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!-- End About -->
+
+    <!-- Experience -->
+    <div id="experience">
+        <div class="bg-color-sky-light" data-auto-height="true">
+            <div class="container content-lg">
+                <div class="row">
+                    <div class="col-sm-3 sm-margin-b-30">
+                        <div class="text-right sm-text-left">
+                            <h2 class="margin-b-0">Experience</h2>
+                            {{--<p>Worked As</p>--}}
+                        </div>
+                    </div>
+                    <div class="col-sm-8 col-sm-offset-1">
+                        <div class="row row-space-2 margin-b-4">
+                            @foreach($exp as $ex)
+                            <div class="col-md-4 md-margin-b-4">
+                                <div class="service" data-height="height">
+                                    <div class="service-element">
+                                        <i class="service-icon icon-chemistry"></i>
+                                    </div>
+                                    <div class="service-info">
+                                        <h3>{{$ex->name}}</h3>
+                                        <h6>For : {{$ex->worked_for}} | As : {{$ex->position}}</h6>
+
+                                        <h6>From : {{$ex->worked_from}} | To : {{$ex->worked_to}}</h6>
+                                        <p class="margin-b-5">{!! $ex->description !!}</p>
+                                    </div>
+                                    {{--<a href="#" class="content-wrapper-link"></a>--}}
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                        <!--// end row -->
+                    </div>
+                </div>
+                <!--// end row -->
+            </div>
+        </div>
+    </div>
+    <!-- End Experience -->
+
+    <!-- Work -->
+    <div id="work">
+        <div class="container content-lg">
+            <div class="row">
+                <div class="col-sm-3 sm-margin-b-30">
+                    <div class="text-right sm-text-left">
+                        <h2 class="margin-b-0">Works</h2>
+                        <p>Some links of the sites live.
+                            </p>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-sm-offset-1">
+                    <!-- Masonry Grid -->
+                    <div class="masonry-grid row row-space-2">
+                        <div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-1"></div>
+
+                        <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4 margin-b-4">
+                            <!-- Work -->@foreach($works as $work)
+                            <div class="work work-popup-trigger">
+                                <h5><a href="">{{$work->domain}}</a></h5>
+
+                            </div>
+                            @endforeach
+                            <!-- End Work -->
+                        </div>
+
+                    </div>
+                    <!-- End Masonry Grid -->
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+    </div>
+    <!-- End Work -->
+
+    <!-- Contact -->
+    <div id="contact">
+        <div class="bg-color-sky-light">
+            <div class="container content-lg">
+                <div class="row">
+                    <div class="col-sm-3 sm-margin-b-30">
+                        <div class="text-right sm-text-left">
+                            <h2 class="margin-b-0">Contacts</h2>
+                            <p>Hire me.</p>
+                        </div>
+                    </div>
+                    @foreach($contacts as $contact)
+                        <div class="col-sm-8 col-sm-offset-1">
+                            <div class="row">
+                                <div class="col-md-3 col-xs-6 md-margin-b-30">
+                                    <h5>Primary Location</h5>
+                                    <a href="#">{{$contact->location_1}}</a>
+                                    <hr>
+                                    <h6>Secondary Location</h6>
+                                    <a href="#">{{$contact->location_2}}</a>
+                                </div>
+                                <div class="col-md-3 col-xs-6 md-margin-b-30">
+                                    <h5>Mobile </h5>
+                                    <a href="#">{{$contact->mobile}}</a>
+                                    <hr>
+                                    <h6>Alt Mobile </h6>
+                                    <a href="#">{{$contact->landline}}</a>
+
+                                </div>
+                                <div class="col-md-3 col-xs-6">
+                                    <h5>Primary Email</h5>
+                                    <a href="mailto:#">{{$contact->primary_email}} </a>
+                                        <hr>
+                                        <h6>Secondary Email</h6>
+                                        <a href="mailto:#">{{$contact->secondary_email}}
+                                        </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <!--// end row -->
+            </div>
+        </div>
+    </div>
+    <!-- End Contact -->
+    <!--========== END PAGE LAYOUT ==========-->
+
+
+@endsection
