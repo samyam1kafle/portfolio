@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\FrontEndController;
 
+use App\Backend\All_users;
 use App\Backend\Contact;
 use App\Backend\experience;
 use App\Backend\skills;
@@ -16,6 +17,7 @@ class frontendController extends Controller
         $skills = skills::all();
         $works = works::all();
         $exp = experience::all();
-        return view('Frontend/index',compact('contacts','skills','works','exp'));
+        $admin = All_users::findOrFail(1);
+        return view('Frontend/index',compact('contacts','skills','works','exp','admin'));
     }
 }
