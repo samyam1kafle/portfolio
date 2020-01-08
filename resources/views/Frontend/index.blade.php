@@ -12,14 +12,17 @@
                 <div class="col-sm-6">
                     <div class="promo-block-divider">
                         <h1 class="promo-block-title">{{$admin->name}}</h1>
-                        <p class="promo-block-text">Web Designer &amp; Front-end Developer</p>
+                        <p class="promo-block-text">Laravel developer </p>
                     </div>
                     <ul class="list-inline">
-                        <li><a href="#" class="social-icons"><i class="icon-social-facebook"></i></a></li>
-                        <li><a href="#" class="social-icons"><i class="icon-social-twitter"></i></a></li>
-                        <li><a href="#" class="social-icons"><i class="icon-social-dribbble"></i></a></li>
-                        <li><a href="#" class="social-icons"><i class="icon-social-behance"></i></a></li>
-                        <li><a href="#" class="social-icons"><i class="icon-social-linkedin"></i></a></li>
+                        <li><a href="https://www.facebook.com/bornride9" class="social-icons"><i
+                                        class="icon-social-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com/sam_yam_/" class="social-icons"><i
+                                        class="icon-social-instagram"></i></a></li>
+                        <li><a href="https://github.com/samyam1kafle" class="social-icons"><i class="icon-social-github"></i></a></li>
+                        {{--<li><a href="#" class="social-icons"><i class="icon-social-behance"></i></a></li>--}}
+                        <li><a href="https://www.linkedin.com/in/samyam-kafle-1b46b9160/" class="social-icons"><i
+                                        class="icon-social-linkedin"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -46,14 +49,14 @@
 
                     <!-- Progress Box -->
                     @foreach($skills as $skill)
-                    <div class="progress-box">
-                        <h5>{{$skill->name}} <span class="color-heading pull-right"></span></h5>
-                        <div class="progress">
-                            <div class="progress-bar bg-color-base" role="progressbar" data-width="100"></div>
+                        <div class="progress-box">
+                            <h5>{{$skill->name}} <span class="color-heading pull-right"></span></h5>
+                            <div class="progress">
+                                <div class="progress-bar bg-color-base" role="progressbar" data-width="100"></div>
+                            </div>
                         </div>
-                    </div>
-                    @endforeach
-                    <!-- End Progress Box -->
+                @endforeach
+                <!-- End Progress Box -->
                 </div>
             </div>
             <!--// end row -->
@@ -75,21 +78,21 @@
                     <div class="col-sm-8 col-sm-offset-1">
                         <div class="row row-space-2 margin-b-4">
                             @foreach($exp as $ex)
-                            <div class="col-md-4 md-margin-b-4">
-                                <div class="service" data-height="height">
-                                    <div class="service-element">
-                                        <i class="service-icon icon-chemistry"></i>
-                                    </div>
-                                    <div class="service-info">
-                                        <h3>{{$ex->name}}</h3>
-                                        <h6>For : {{$ex->worked_for}} | As : {{$ex->position}}</h6>
+                                <div class="col-md-4 md-margin-b-4">
+                                    <div class="service" data-height="height">
+                                        <div class="service-element">
+                                            <i class="service-icon icon-chemistry"></i>
+                                        </div>
+                                        <div class="service-info">
+                                            <h3>{{$ex->name}}</h3>
+                                            <h6>For : {{$ex->worked_for}} | As : {{$ex->position}}</h6>
 
-                                        <h6>From : {{$ex->worked_from}} | To : {{$ex->worked_to}}</h6>
-                                        <p class="margin-b-5">{!! $ex->description !!}</p>
+                                            <h6>From : {{$ex->worked_from}} | To : {{$ex->worked_to}}</h6>
+                                            <p class="margin-b-5">{!! $ex->description !!}</p>
+                                        </div>
+                                        {{--<a href="#" class="content-wrapper-link"></a>--}}
                                     </div>
-                                    {{--<a href="#" class="content-wrapper-link"></a>--}}
                                 </div>
-                            </div>
                             @endforeach
                         </div>
                         <!--// end row -->
@@ -109,7 +112,7 @@
                     <div class="text-right sm-text-left">
                         <h2 class="margin-b-0">Works</h2>
                         <p>Some links of the sites live.
-                            </p>
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-8 col-sm-offset-1">
@@ -119,12 +122,19 @@
 
                         <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4 margin-b-4">
                             <!-- Work -->@foreach($works as $work)
-                            <div class="work work-popup-trigger">
-                                <h5><a href="">{{$work->domain}}</a></h5>
+                                <div class="work work-popup-trigger">
+                                    <h5><a href="">{{$work->domain}}</a></h5>
 
-                            </div>
-                            @endforeach
-                            <!-- End Work -->
+                                </div>
+                        @endforeach
+
+                            @if($works->count() == null)
+                                <div class="work work-popup-trigger">
+                                    <h4>There are no any projects live on the server right now.</h4>
+
+                                </div>
+                                @endif
+                        <!-- End Work -->
                         </div>
 
                     </div>
@@ -168,10 +178,10 @@
                                 <div class="col-md-3 col-xs-6">
                                     <h5>Primary Email</h5>
                                     <a href="mailto:#">{{$contact->primary_email}} </a>
-                                        <hr>
-                                        <h6>Secondary Email</h6>
-                                        <a href="mailto:#">{{$contact->secondary_email}}
-                                        </a>
+                                    <hr>
+                                    <h6>Secondary Email</h6>
+                                    <a href="mailto:#">{{$contact->secondary_email}}
+                                    </a>
                                 </div>
 
                             </div>

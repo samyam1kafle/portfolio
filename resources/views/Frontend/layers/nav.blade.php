@@ -13,12 +13,11 @@
 
                     <!-- Logo -->
                     <!-- Logo -->
-                    <div class="logo">
+                    <div class="logo" style="width:580px;">
                         <a class="logo-wrap" href="#body">
-                            <img class="logo-img logo-img-main" src="{{asset('FrontEnd/img/logo.png')}}"
-                                 alt="Asentus Logo">
-                            <img class="logo-img logo-img-active" src="{{asset('FrontEnd/img/logo-dark.png')}}"
-                                 alt="Asentus Logo">
+                            <img class="logo-img logo-img-main" src="{{asset('uploads/logo/signature.png')}}"
+                                 alt="Portfolio Logo" style="width:280px; margin-left:-50px;" >
+
                         </a>
                     </div>
                     <!-- End Logo -->

@@ -6,6 +6,7 @@ use App\Backend\All_users;
 use App\Backend\Contact;
 use App\Backend\experience;
 use App\Backend\skills;
+use App\Http\Requests\profileValidate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -79,7 +80,7 @@ class profileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(profileValidate $request, $id)
     {
         $update = All_users::findOrFail($id);
             if($request->hasFile('image')){
@@ -87,7 +88,7 @@ class profileController extends Controller
                     unlink(public_path().'/uploads/'.$update->image);
                 }
                 $featured = $request->file('image');
-                $name = time() . $featured->getClientOriginalExtension();
+                $name = time() . $featured->getClientOriginalName();
 
                 $resize =Image::make($featured);
                 $resize->resize('1920','1080')->save('uploads/'.$name);
@@ -97,7 +98,6 @@ class profileController extends Controller
             $update->name = $request->name;
             $update->email = $request->email;
             $update->introduction = $request->introduction;
-            $update->password = Hash::make($request->password);
 
             $updated = $update->update();
         if($updated){

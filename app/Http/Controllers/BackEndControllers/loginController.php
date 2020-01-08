@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\BackEndControllers;
 
+use App\Backend\All_users;
+use App\Http\Requests\passwordConfirm;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class loginController extends Controller
@@ -37,5 +40,21 @@ class loginController extends Controller
         Session::flush();
         Auth::logout();
         return redirect()->route('admin-login')->with('delete', 'Logged Out Successfully');
+    }
+
+    public function u_pass(passwordConfirm $request,$id){
+        $detail = All_users::findOrFail($id);
+        $pwd = $detail->password;
+        $current = $request->current_password;
+        $new_pwd = $request->password;
+
+        if(Hash::check($current,$pwd)){
+            $detail->password = Hash::make($new_pwd);
+            $detail->update();
+
+            return redirect()->back()->with('success','Password Changed Successfully');
+        }else{
+            return redirect()->back()->with('Error','Current Password Incorrect please try again');
+        }
     }
 }

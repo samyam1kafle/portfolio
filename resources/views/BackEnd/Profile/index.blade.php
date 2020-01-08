@@ -11,7 +11,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('admin-index')}}">Home</a></li>
                             <li class="breadcrumb-item active">User Profile</li>
                         </ol>
                     </div>
@@ -23,6 +23,11 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
+                    @if(count($errors)>0)
+                        @foreach($errors->all() as $error)
+                            {{Session::flash('Error',$error)}}
+                        @endforeach
+                    @endif
                     <div class="col-md-3">
 
                         <!-- Profile Image -->
@@ -31,7 +36,7 @@
                                 <div class="text-center">
                                     <img class="profile-user-img img-fluid img-circle"
                                          src="{{asset('uploads/' . $user->image)}}"
-                                         alt="User profile picture" width="150px" height="100">
+                                         alt="User profile picture" style="width: 150px">
                                 </div>
 
                                 <h3 class="profile-username text-center">{{$user->name}}</h3>
@@ -54,7 +59,7 @@
                                 <strong><i class="fa fa-book mr-1"></i> Education</strong>
 
                                 <p class="text-muted">
-                                    B.S. in Computer Science from the University of Tennessee at Knoxville
+                                    Studied B.S.C Csit from <b>Tribhuvan University</b>
                                 </p>
 
                                 <hr>
@@ -78,7 +83,7 @@
 
                                 <strong><i class="fa fa-file-text-o mr-1"></i> Notes</strong>
 
-                                <p class="text-muted">{{$user->introduction}}</p>
+                                <p class="text-muted">{!! $user->introduction !!}</p>
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -89,13 +94,66 @@
                         <div class="card">
                             <div class="card-header p-2">
                                 <ul class="nav nav-pills">
-
-                                    <li class="nav-item"><a class="nav-link" href="#settings"
+                                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Password</a>
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link " href="#settings"
                                                             data-toggle="tab">Settings</a></li>
                                 </ul>
                             </div><!-- /.card-header -->
                             <div class="card-body">
                                 <div class="tab-content">
+
+                                    <div class="active tab-pane" id="activity">
+
+
+                                        <form class="form-horizontal" action="{{route('update_pwd',$user->id)}}"
+                                              method="post">
+                                            {{csrf_field()}}
+                                            <input type="hidden" name="_method" value="PUT">
+
+                                            <div class="form-group">
+                                                <label for="Current password" class="col-sm-4 control-label">Current
+                                                    password</label>
+
+                                                <div class="col-sm-10">
+                                                    <input type="password" class="form-control" name="current_password"
+                                                           id="password"
+                                                           placeholder="Current password">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="Password" class="col-sm-2 control-label">Password</label>
+
+                                                <div class="col-sm-10">
+                                                    <input type="password" class="form-control" name="password"
+                                                           id="password"
+                                                           placeholder="New password">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="con_Password" class="col-sm-4 control-label">Confirm
+                                                    Password</label>
+
+                                                <div class="col-sm-10">
+                                                    <input type="password" class="form-control"
+                                                           name="password_confirmation"
+                                                           id="con_password"
+                                                           placeholder="Confirm password">
+                                                </div>
+                                            </div>
+                                            {{csrf_field()}}
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                    <button type="submit" class="btn btn-danger">Submit</button>
+                                                    <button type="reset" class="btn btn-danger">Reset</button>
+                                                </div>
+                                            </div>
+                                        </form>
+
+
+                                    </div>
+
                                     <div class="tab-pane" id="settings">
                                         <form class="form-horizontal" action="{{route('profile.update',$user->id)}}"
                                               method="post" enctype="multipart/form-data">
@@ -116,26 +174,6 @@
                                                     <input type="email" class="form-control" name="email"
                                                            id="inputEmail"
                                                            value="{{$user->email}}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="Password" class="col-sm-2 control-label">Password</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="password" class="form-control" name="password"
-                                                           id="password"
-                                                           placeholder="password">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="con_Password" class="col-sm-2 control-label">Confirm
-                                                    Password</label>
-
-                                                <div class="col-sm-10">
-                                                    <input type="password" class="form-control"
-                                                           name="password_confirmation"
-                                                           id="con_password"
-                                                           placeholder="Confirm password">
                                                 </div>
                                             </div>
 

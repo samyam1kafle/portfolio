@@ -22,6 +22,8 @@ Route::any('/admin-login', 'BackEndControllers\loginController@login')->name('ad
 
 Route::get('/log-out', 'BackEndControllers\loginController@logout')->name('log-out');
 
+Route::put('/password-update/{id}', 'BackEndControllers\loginController@u_pass')->name('update_pwd');
+
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
     Route::get('/index', 'BackEndControllers\BackEndController@index')->name('admin-index');

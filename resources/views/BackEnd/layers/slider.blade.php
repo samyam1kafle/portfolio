@@ -14,11 +14,11 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{{asset('BackEnd/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2"
+                    <img src="{{asset('uploads/'.Auth::user()->image)}}" class="img-circle elevation-2"
                          alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">Samyam Kafle</a>
+                    <a href="#" class="d-block">{{Auth::user()->name}}</a>
                 </div>
             </div>
 
@@ -201,16 +201,16 @@
 
                     </li>
 
-                    <li class="nav-header">EXAMPLES</li>
-                    <li class="nav-item">
-                        <a href="pages/calendar.html" class="nav-link">
-                            <i class="nav-icon fa fa-calendar"></i>
-                            <p>
-                                Calendar
-                                <span class="badge badge-info right">2</span>
-                            </p>
-                        </a>
-                    </li>
+                    {{--<li class="nav-header">Date</li>--}}
+                    {{--<li class="nav-item">--}}
+                        {{--<a href="pages/calendar.html" class="nav-link">--}}
+                            {{--<i class="nav-icon fa fa-calendar"></i>--}}
+                            {{--<p>--}}
+                                {{--Calendar--}}
+                                {{--<span class="badge badge-info right">2</span>--}}
+                            {{--</p>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
 
                 </ul>
             </nav>
