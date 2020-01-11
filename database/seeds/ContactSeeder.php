@@ -14,12 +14,12 @@ class ContactSeeder extends Seeder
     {
         $contact = array(
             array(
-                'location_1'=>'Kadaghari, Manohara',
-                'location_2'=>'Kapan, Kathmandu',
-                'mobile'=>'9815948146',
-                'landline'=>'9863629810',
-                'primary_email'=>'samyam1kafle@gmail.com',
-                'secondary_email'=>'isamyamkafle@gmail.com'
+                'location_1'=>'XXX, Kathmandu',
+                'location_2'=>'YYY, Kathmandu',
+                'mobile'=>'1234567897',
+                'landline'=>'9876543210',
+                'primary_email'=>'admin@gmail.com',
+                'secondary_email'=>'secondaryadmin@gmail.com'
 
 
             )

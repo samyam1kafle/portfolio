@@ -14,11 +14,11 @@ class workSeeder extends Seeder
 
         $work = array(
             array(
-                'domain'=>'www.samyamkafle.com.np'
+                'domain'=>'http://www.samyamkafle.com.np/'
             ),array(
-                'domain'=>'www.dresshack.com.np'
+                'domain'=>'https://www.linkedin.com/in/samyam-kafle-1b46b9160/'
             ) ,array(
-                'domain'=>'www.raksisitan.com.np'
+                'domain'=>'https://www.facebook.com/bornride9'
             )
         );
         DB::table('works')->insert($work);

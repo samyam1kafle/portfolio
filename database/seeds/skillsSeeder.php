@@ -15,19 +15,7 @@ class skillsSeeder extends Seeder
         $skills = array(
           array(
               'name'=>'Html'
-          ),array(
-                'name'=>'Css'
-            ) ,array(
-                'name'=>'Ajax'
-            ) ,array(
-                'name'=>'JavaScript'
-            ) ,array(
-                'name'=>'Php'
-            ) ,array(
-                'name'=>'Laravel'
-            ) ,array(
-                'name'=>'Git Hub'
-            ) ,
+          )
         );
         DB::table('skills')->insert($skills);
     }
